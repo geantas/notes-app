@@ -1,0 +1,380 @@
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,dfn,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin:0;
+    padding:0;
+    background: rgb(62,51,51) url("../media/background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 24vw);
+    grid-template-areas:
+    "header header header header"
+    "messages messages messages messages"
+    "main main main main"
+    "footer footer footer footer";
+}
+
+header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    position: relative;
+    padding: 1.7em 0;
+}
+
+.top-nav {
+    grid-column-start: 3;
+    grid-column-end: 15;
+    justify-self: center;
+}
+
+section.messages {
+    grid-area: messages;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    justify-self: center;
+    text-align: center;
+    height: 50px;
+    margin-bottom: 30px;
+    color: rgba(255, 245, 241, 0.767); 
+}
+
+section.content {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+}
+
+.left-box {
+    grid-column-start: 2;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    width: 100%;
+    justify-self: center;
+}
+
+.separator {
+    padding: 10px;
+    grid-column-start: 9;
+    grid-column-end: 10;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    border-right: 1px solid rgb(255, 170, 151);
+}
+
+.right-box {
+    grid-column-start: 11;
+    grid-column-end: 18;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    width: 100%;
+    justify-self: center;
+}
+
+footer {
+    grid-area: footer;
+    justify-self: center;
+    color: rgb(255,245,241);
+    margin: 45px 0 25px 0;
+    text-align: center;
+}
+
+
+.message {
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 3px;
+}
+
+.error {
+    background-color: rgba(255, 139, 113, 0.7);
+}
+
+.success {
+    background-color: rgba(111, 201, 99, 0.7);
+}
+
+.single_note {
+    border-bottom: 1px solid rgb(255, 184, 168);
+    margin-bottom: 8px;
+    padding: 5px 5px 5px 8px;
+    -webkit-transition: 0.35s all; /* Safari */
+    transition: 0.35s all;
+}
+
+.single_note:hover {
+    border-bottom: 1px solid rgba(255, 184, 168, 0);
+    background-color: rgba(255, 184, 168, 0.219);
+    -webkit-transition: 0.35s all; /* Safari */
+    transition: 0.35s all;
+}
+
+.addedontext {
+    width: 100%;
+    font-size: 13px;
+    color: rgb(255,245,241);
+    text-align: left;
+}
+
+.addedonvalue {
+    color: rgb(255, 184, 168);
+}
+
+.notevalue {
+    width: 100%;
+    font-size: 19px;
+    text-align: center;
+    color:rgb(255,245,241);
+    word-wrap: break-word; /* in case it is a very long text without spaces */
+}
+
+h2 {
+    justify-self: center;
+    font-size: 24px;
+    text-align: center;
+    color:rgb(255,245,241); 
+}
+
+input[type="text"], input[type="password"], textarea {
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+    color: rgb(255,245,241);
+    border: 1px solid rgba(0,0,0,0);
+    border-radius: 3px;
+    border-bottom: 1px solid rgb(255,245,241);
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(255, 184, 168, 0.062);
+    -webkit-transition: 0.4s all; /* Safari */
+    transition: 0.4s all;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+textarea:hover, input[type="text"]:hover, input[type="password"]:hover {
+    border-top: 1px solid rgb(255, 184, 168);
+    border-bottom: 1px solid rgb(255, 184, 168);
+}
+
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus {
+    border: 1px solid #FF8A71;
+    font-size: 16px;
+    -webkit-transition: 0.4s all; /* Safari */
+    transition: 0.4s all;
+}
+
+input[type="submit"] {
+    padding: 9px 63px;
+    background: transparent;
+    border: 2px solid rgb(255,245,241);
+    border-radius: 29px;
+    outline: none;
+    margin-top: 35px;
+    font-size: 16px;
+    float: right;
+    color: #FF8A71;
+    cursor: pointer;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+input[type="submit"]:hover {
+    background: #FF8A71;
+    border: 2px solid #FF8A71;
+    color: rgb(255,245,241); 
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+textarea:placeholder-shown {
+    color: rgb(240, 175, 149); 
+    font-size: 16px;
+}
+
+.top-nav ul {
+    margin: 0;
+}
+
+.top-nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.top-nav li a {
+    color: rgb(255,245,241);
+    text-decoration: none;
+}
+
+.top-nav li a:hover, .top-nav li a.active {
+    color: #FF8A71;
+    text-decoration: none;
+}
+
+/* ******************************************************
+	Effect 3: Topliner .ayanHoverEffect_3
+*********************************************************/
+/* 
+ayanEffects are taken somewhere from internet,
+but it has been a long time since I have it (and I really like it),
+I do not remember and cannot find the source where it took it from.
+
+all this is not hard to remake, but I wanted to keep it as original as possible,
+since I do not have a reference to it (so I also don't even change the names of classes)
+*/
+
+/*--basic styling of nav--*/
+
+.ayanEffects ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.ayanEffects li {
+    list-style: none;
+    display: inline-block;
+    margin: 0px 10px;
+}
+
+.ayanEffects li a {
+    font-family: 'Source Code Pro', serif;
+    font-weight: 400;
+    font-size: 1.1em;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    color: rgb(255, 170, 151);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ayanEffects li span {
+    font-family: 'Source Code Pro', serif;
+    font-weight: 400;
+    font-size: 1.1em;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    color: rgb(255,245,241);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ayanEffects a:hover, .ayanEffects a:focus {
+    outline: none;
+}
+
+/*--//basic styling of nav--*/
+
+.ayanHoverEffect_3 a {
+    padding: 0 20px;
+    line-height: 45px;
+}
+
+.ayanHoverEffect_3 a::before {
+    position: absolute;
+    content: '';
+    width: 50px;
+    height: 3px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    pointer-events: none;
+}
+
+.ayanHoverEffect_3 a:hover {
+    color: #6559bc;
+}
+
+.ayanHoverEffect_3 a:hover::before, .ayanHoverEffect_3 a:hover::after, .ayanHoverEffect_3 a:focus::before, .ayanHoverEffect_3 a:focus::after {
+    background: #FF8A71;
+}
+
+.ayanHoverEffect_3 a:hover::before, .ayanHoverEffect_3 a:focus::before {
+    left: 50%;
+    -webkit-transform: rotate(0deg) translateX(-50%);
+    -moz-transform: rotate(0deg) translateX(-50%);
+    transform: rotate(0deg) translateX(-50%);
+}
+
+.ayanHoverEffect_3 a:hover::after, .ayanHoverEffect_3 a:focus::after {
+    right: 50%;
+    -webkit-transform: rotate(0deg) translateX(50%);
+    -moz-transform: rotate(0deg) translateX(50%);
+    transform: rotate(0deg) translateX(50%);
+}
+
+/* ******************************************************
+	Effect 3: Topliner .ayanHoverEffect_3
+*********************************************************/
+
+/* responsiveness */
+/*
+since I made a two-part (left-right) application only, I do not need a lot of media queries to make a website responsive.
+I only need to put right part of the website under the left part of the website
+when certain dimensions have been reached. 
+*/
+
+@media(max-width: 740px) {
+    section.content {
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        grid-template-rows: 100% 30px 30px 100%;
+    }
+
+    .left-box {
+        grid-column-start: 2;
+        grid-column-end: 9;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        width: 100%;
+        justify-self: center;
+    }
+
+    .separator {
+        grid-column-start: 2;
+        grid-column-end: 9;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        width: 100%;
+        border: none; /* border reset */
+        border-bottom: 1px solid rgb(255, 170, 151);
+        justify-self: left;
+    }
+
+    .right-box {
+        grid-column-start: 2;
+        grid-column-end: 9;
+        grid-row-start: 4;
+        grid-row-end: 4;
+        width: 100%;
+        justify-self: center;
+    }
+}
